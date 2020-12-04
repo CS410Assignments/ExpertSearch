@@ -1,0 +1,7 @@
+UIUC - 
+    allowed_domains = ['cs.illinois.edu']
+    start_urls = ['https://cs.illinois.edu/']
+
+Stanford - 
+    allowed_domains = ['cs.stanford.edu']
+    start_urls = ['https://cs.stanford.edu/']
