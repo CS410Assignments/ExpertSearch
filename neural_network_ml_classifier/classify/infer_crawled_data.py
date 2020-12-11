@@ -6,20 +6,21 @@ import numpy as np
 from neural_network_ml_classifier.data_processor.PreProcess import PreProcessor
 
 crawled_data_path = '../../Crawl-n-Extract/Merge/UIUC.txt'
-model_base_path = '../fully_trained/'
+model_base_path = '../../fully_trained_model/'
 
-print("Loading models models..")
+print("Loading trained model from: ", model_base_path + 'neural_network_model_v1/model')
 model:Sequential = tf.keras.models.load_model(model_base_path + 'neural_network_model_v1/model')
+print("Loading vectorized from: ", model_base_path + 'vectorizer/vectorizer_object')
 vectorizer:TfidfVectorizer = pickle.load(open(model_base_path + 'vectorizer/vectorizer_object', 'rb'))
 # vectorizer:TfidfVectorizer = pickle.load(open('/Users/hbojja/uiuc/CS410-TIS/ExpertSearch/hari_data_processed/untouch/vectorizer_object', 'rb'))
 
-print("Loading models completed..")
+print("Loading trained models completed..")
 
 print("Loading crawled data..")
 
 crawled_data = open(crawled_data_path, 'r').readlines()
 
-print("Loading crawled data completed..")
+print("Loading crawled data completed. # docs read: ", len(crawled_data))
 
 pp = PreProcessor()
 processed_lines = []
