@@ -4,7 +4,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from tensorflow.keras.models import Sequential
 import numpy as np
 
-data_base_path = '/Users/hbojja/uiuc/CS410-TIS/ExpertSearch/hari_data_processed/untouch/test/'
+data_base_path = '/hari_data_processed/untouch/test/'
 model_base_path = '/Users/hbojja/PycharmProjects/trained_models/expert_search/'
 
 

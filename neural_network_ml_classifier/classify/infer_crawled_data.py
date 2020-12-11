@@ -1,17 +1,15 @@
-import math
-
 import tensorflow as tf
 import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 from tensorflow.keras.models import Sequential
 import numpy as np
-from neural_network_ml_classifier.PreProcess import PreProcessor
+from neural_network_ml_classifier.data_processor.PreProcess import PreProcessor
 
 crawled_data_path = '../../Crawl-n-Extract/Merge/UIUC.txt'
 model_base_path = '../fully_trained/'
 
 print("Loading models models..")
-model:Sequential = tf.keras.models.load_model(model_base_path + 'NN_V1/model')
+model:Sequential = tf.keras.models.load_model(model_base_path + 'neural_network_model_v1/model')
 vectorizer:TfidfVectorizer = pickle.load(open(model_base_path + 'vectorizer/vectorizer_object', 'rb'))
 # vectorizer:TfidfVectorizer = pickle.load(open('/Users/hbojja/uiuc/CS410-TIS/ExpertSearch/hari_data_processed/untouch/vectorizer_object', 'rb'))
 

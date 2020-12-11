@@ -1,9 +1,9 @@
 import numpy as np
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
-from dl_models.train.model_builder import build
+from neural_network_ml_classifier.train.model_builder import build
 import pickle
-from dl_models.train.model_executor import compile_fit, saveModels
+from neural_network_ml_classifier.train.model_executor import compile_fit, saveModels
 
 data_base_dir = '/hari_data_processed/untouch/'
 train_data_precentage = .8
@@ -28,7 +28,7 @@ train_set = train_set.shuffle(10000).batch(MINI_BATCH_SIZE).repeat()
 val_set = tf.data.Dataset.from_tensor_slices((val_set_X, val_set_Y))
 val_set = val_set.batch(MINI_BATCH_SIZE).repeat()
 
-neural_network = build(MINI_BATCH_SIZE, len(vectorizer.get_feature_names()))
+neural_network = build(len(vectorizer.get_feature_names()))
 
 model, model_history = compile_fit(neural_network, train_set, val_set, train_set_X.shape[0], val_set_X.shape[0], MINI_BATCH_SIZE)
 

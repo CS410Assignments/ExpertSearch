@@ -1,6 +1,6 @@
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from nltk.stem.porter import PorterStemmer;
+from nltk.stem.porter import PorterStemmer
 import os
 
 
@@ -21,9 +21,13 @@ class PreProcessor(object):
         # init Stemmer
         self.stemmer = PorterStemmer()
 
-    # The stop word removal and stemming is performed in the same function to keep the cost to 'n'.
-    # If written separately, cost could go up to '3n'.
     def intersectStopWordsAndStem(self, line):
+        """Remove the stop words and stem the input line of data
+                :returns:
+                    returns the input string after removing stop words and stemming.
+                """
+        # The stop word removal and stemming is performed in the same function to keep the cost to 'n'.
+        # If written separately, cost could go up to '3n'.
         pre_tokens = word_tokenize(line)
         final_string = ''
         for w in pre_tokens:
@@ -34,6 +38,13 @@ class PreProcessor(object):
         return final_string
 
     def process(self, source_dir, dest_dir):
+        """Reads all the files in source_dir directory.
+            Writes them to dest_dir after removing stop words and stemming.
+
+            Arguments:
+                source_dir: source directory where raw data is stored.
+                dest_dir: destination where the processed data needs to be stored.
+                """
         for file in os.listdir(source_dir):
             dest_file = open(dest_dir + "/" + file, mode='w')
             for line in open(source_dir + "/" + file):
