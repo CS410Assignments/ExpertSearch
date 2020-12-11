@@ -1,8 +1,8 @@
-import tensorflow as tf
 import pickle
-from sklearn.feature_extraction.text import TfidfVectorizer
-from tensorflow.keras.models import Sequential
+
 import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
 
 data_base_path = '/hari_data_processed/untouch/test/'
 model_base_path = '/Users/hbojja/PycharmProjects/trained_models/expert_search/'
