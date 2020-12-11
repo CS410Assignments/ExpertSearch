@@ -5,12 +5,15 @@ from scrapy.spiders import Rule, CrawlSpider
 from link_extractor.items import LinkExtractorItem
 
 class UiucSpider(CrawlSpider):
-    name = 'uiuc'
-    allowed_domains = ['cs.illinois.edu']
-    start_urls = ['https://cs.illinois.edu/']
+    # define name of the spider
 
-    #allowed_domains = ['cs.stanford.edu']
-    #start_urls = ['https://cs.stanford.edu/']
+    name = 'uiuc'
+
+    # define allowed-domains and the web-url to crawl
+    allowed_domains = ['utexas.edu']
+    start_urls = ['https://www.cs.utexas.edu/']
+
+    # set follow = False to limit the crawl for web links
 
     rules = [
             Rule(
@@ -37,7 +40,7 @@ class UiucSpider(CrawlSpider):
         # Now go through all the found links
         for link in links:
             # Check whether the domain of the URL of the link is allowed; so whether it is in one of the allowed domains
-            is_allowed = False
+            is_allowed = True
             for allowed_domain in self.allowed_domains:
                 if allowed_domain in link.url:
                     is_allowed = True

@@ -4,6 +4,7 @@ import re
 import sys
 import csv
 import urllib
+import time
 
 links = []
 
@@ -51,8 +52,7 @@ def is_valid_homepage(link1):
             return False
 
     try:
-        # sometimes the homepage url points to the same page as the faculty profile page
-        # which should be treated differently from an actual homepage
+        # try to open the url
         ret_url = urllib.request.urlopen(link1).geturl()
     except:
         return False  # unable to access bio_url
@@ -60,6 +60,7 @@ def is_valid_homepage(link1):
     return True
 
 def extract_text_data(link1):
+
     html = urlopen(link1).read()
     soup = BeautifulSoup(html, features="html.parser")
 

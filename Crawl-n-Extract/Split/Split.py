@@ -39,10 +39,10 @@ def split(filehandler, delimiter=',', row_limit=10000,
     seen = []
     for i, row in enumerate(reader):
         if len(row) > 0:
-            if (row[0] != ''):
+            if (row[1] != ''):
                 #print(row)
-                if row[0] not in seen:
-                    seen.append(row[0])
+                if row[1] not in seen:
+                    seen.append(row[1])
                     if i + 1 > current_limit:
                         current_piece += 1
                         current_limit = row_limit * current_piece
@@ -56,4 +56,4 @@ def split(filehandler, delimiter=',', row_limit=10000,
                     current_out_writer.writerow(row)
 
 
-split(filehandler = open("UIUC.csv",'r',encoding='utf-8'), row_limit = 100000);
+split(filehandler = open("UTexas.csv",'r',encoding='utf-8'), row_limit = 10000);

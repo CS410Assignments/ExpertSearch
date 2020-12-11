@@ -2,9 +2,11 @@ import os
 import glob
 import pandas as pd
 
-filenames = ["UIUC1.txt", "UIUC2.txt"]
+#Merge input txt files into one file
 
-with open("UIUC.txt", "w") as outfile:
+filenames = ["UTexas1.txt", "UTexas2.txt", "UTexas3.txt", "UTexas4.txt", "UTexas5.txt"]
+
+with open("UTexas.txt", "w") as outfile:
     i=0
     for filename in filenames:
         if i != 0:
