@@ -3,6 +3,7 @@ from sklearn.metrics import accuracy_score, f1_score
 import os
 import pickle
 import numpy as np
+import joblib
 
 PROCESSED_DATA_BASE_PATH = os.path.dirname(os.path.abspath(__file__)) + '/../hari_data_processed/'
 
@@ -34,7 +35,7 @@ def main():
     predictions = [round(value) for value in y_pred]
 
     print(f"F1:score: {f1_score(Y_test, y_pred, average=None)[0]}")
-
+    joblib.dump(logisticRegr, "logit.model")
 
 if __name__ == "__main__":
     main()
