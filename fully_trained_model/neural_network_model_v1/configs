@@ -1,0 +1,3 @@
+epochs=20
+loss='binary_crossentropy'
+Adam(learning_rate=0.0001)
