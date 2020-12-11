@@ -73,16 +73,3 @@ target_dir = "/home/dl_models/logs/stock_project/"+target_column_name
 lstm_model.save(target_dir)
 joblib.dump(x_scaler, target_dir+"/X_scaler")
 joblib.dump(y_scaler, target_dir+"/Y_scaler")
-
-
-
-# plot_val_vs_prediction(lstm_model, train_set_X, train_set_Y)
-
-
-# plt.figure()
-#
-# high_values = input_data[:, target_column_index]
-# high_values.append(val_predicted[0][0])
-#
-# plt.plot(range(len(high_values)), high_values, 'b', label='history values')
-# plt.show()

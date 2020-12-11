@@ -3,6 +3,7 @@ from nltk.tokenize import word_tokenize
 from nltk.stem.porter import PorterStemmer;
 import os
 
+
 # One time step
 # python -m nltk.downloader stopwords
 # nltk.download('stopwords')
@@ -39,8 +40,7 @@ class PreProcessor(object):
                 dest_file.write(self.intersectStopWordsAndStem(line) + "\n")
             dest_file.close()
 
-
-preProcessor = PreProcessor()
-preProcessor.process("./raw_data", "./pre_processed_data")
+# preProcessor = PreProcessor()
+# preProcessor.process("./raw_data", "./pre_processed_data")
 # preProcessor.process("Hello, This is a sample sentence with full of stop words. "
 #                      "Stems the words and prints the results. No ordered manner.")
